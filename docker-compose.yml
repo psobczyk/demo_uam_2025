@@ -1,0 +1,20 @@
+version: '3'
+services:
+  myapp:
+    build:
+      .
+    depends_on:
+      - "ollama"
+    ports:
+      - 88:8888
+    container_name: myapp
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - 11434:11434
+    container_name: ollama
+    volumes:
+      - ollama_data:/root/.ollama
+
+volumes:
+  ollama_data:

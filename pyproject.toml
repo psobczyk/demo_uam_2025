@@ -1,0 +1,53 @@
+[project]
+name = "demo-uam-2025"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "dash>=3.0.2",
+    "dotenv>=0.9.9",
+    "flask-caching>=2.3.1",
+    "jupyter-dash>=0.4.2",
+    "langchain-openai>=0.3.12",
+    "matplotlib>=3.10.3",
+    "nltk>=3.9.1",
+    "pandas>=2.2.3",
+    "pip>=25.1.1",
+    "pydantic>=2.11.3",
+    "redis>=6.1.0",
+    "requests>=2.32.3",
+    "scikit-image>=0.25.2",
+    "spacy>=3.8.6",
+    "torch>=2.6.0",
+    "transformers>=4.35.2",
+]
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+    "notebook>=7.3.3",
+    "sqlfluff>=3.3.1",
+    "ruff",
+    "mypy>=1.15.0",
+    "pytest>=8.3.5",
+]
+
+[tool.ruff]
+ignore = ["F841"]
+
+
+[tool.sqlfluff.core]
+dialect = "trino" 
+sql_file_exts = ".sql,.sql.j2,.dml,.ddl"
+
+[tool.sqlfluff.indentation]
+indented_joins = true
+indented_using_on = true
+template_blocks_indent = false
+
+[tool.sqlfluff.templater]
+unwrap_wrapped_queries = true
+
+[tool.sqlfluff.rules.capitalisation.keywords]
+capitalisation_policy = "capitalise"
