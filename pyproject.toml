@@ -34,7 +34,7 @@ dev = [
 ]
 
 [tool.ruff]
-ignore = ["F841"]
+lint.ignore = ["F841"]
 
 
 [tool.sqlfluff.core]
